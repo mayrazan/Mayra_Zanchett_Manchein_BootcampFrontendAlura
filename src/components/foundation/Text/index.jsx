@@ -17,6 +17,7 @@ export const TextStyleVariants = (name) => {
 const TextBase = styled.span`
   ${propToStyle('textAlign')}
   ${propToStyle('margin')}
+  color: ${({ theme, color }) => color && theme.colors.primary.main[color]};
   ${({ variant }) => {
     if (typeof variant === 'string') {
       return TextStyleVariants(variant);
@@ -30,13 +31,19 @@ const TextBase = styled.span`
       `,
     });
   }}
+  ${({ as }) =>
+    as === 'a' &&
+    css`
+      cursor: pointer;
+    `}
 `;
 
-export default function Text({ variant, children, tag, ...props }) {
+export default function Text({ variant, children, tag, color, ...props }) {
   return (
     <TextBase
       as={tag}
       variant={variant}
+      color={color}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
@@ -49,9 +56,11 @@ Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.node.isRequired,
+  color: PropTypes.string,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  color: '#000000',
 };
