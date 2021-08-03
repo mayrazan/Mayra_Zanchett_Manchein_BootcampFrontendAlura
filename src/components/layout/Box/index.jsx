@@ -5,8 +5,10 @@ const Box = styled.div`
   ${propToStyle('display')}
   ${propToStyle('flexDirection')}
   ${propToStyle('justifyContent')}
+  ${propToStyle('flex')}
   ${propToStyle('flexWrap')}
   ${propToStyle('flexGrow')}
+  ${propToStyle('flexFlow')}
   ${propToStyle('background')}
   ${propToStyle('backgroundSize')}
   ${propToStyle('width')}
@@ -16,6 +18,7 @@ const Box = styled.div`
   ${propToStyle('transform')}
   ${propToStyle('alignSelf')}
   ${propToStyle('padding')}
+  ${propToStyle('gap')}
 `;
 
 export default Box;

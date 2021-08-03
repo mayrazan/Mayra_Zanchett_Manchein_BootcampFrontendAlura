@@ -60,10 +60,16 @@ const typographyFonts = {
     lineHeight: '29px',
   },
   // [titleProjctSM]
-  titleProjctSM: {
+  titleProjectSM: {
     fontSize: '24px',
     fontWeight: 'bold',
     lineHeight: '29px',
+  },
+  // [titleProjctSM]
+  titleProjectSection: {
+    fontSize: '36px',
+    fontWeight: 'normal',
+    lineHeight: '43px',
   },
 };
 

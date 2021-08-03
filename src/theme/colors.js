@@ -1,7 +1,7 @@
 const colors = {
   background: {
     main: {
-      color: '#FFFFFF',
+      color: '#ffffff',
     },
     nav: {
       color: '#e9c46a',

@@ -6,7 +6,7 @@ import NavBar from '../NavBar';
 
 const SectionContainer = styled.section`
   min-height: 40px;
-  height: auto;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.background.navMain.color};
   padding: 0 16px;
   display: flex;

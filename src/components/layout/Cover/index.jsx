@@ -14,7 +14,7 @@ const Grid = styled.section`
       grid-template-areas: 'coverAreaLeft coverAreaCenter coverAreaRight';
       grid-template-columns: 280px auto 280px;
       grid-template-rows: auto;
-      height: -webkit-fill-available;
+      height: calc(100vh - 60px);
     `,
   })}
 `;
