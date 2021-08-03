@@ -1,54 +1,81 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import Text from '../../foundation/Text';
-import Box from '../Box';
+
+const Grid = styled.section`
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'coverAreaLeft' 'coverAreaCenter' 'coverAreaRight';
+  grid-template-columns: auto;
+  grid-template-rows: 280px auto 280px;
+  ${breakpointsMedia({
+    md: css`
+      grid-template-areas: 'coverAreaLeft coverAreaCenter coverAreaRight';
+      grid-template-columns: 280px auto 280px;
+      grid-template-rows: auto;
+      height: -webkit-fill-available;
+    `,
+  })}
+`;
+
+Grid.CoverAreaLeft = styled.div`
+  grid-area: coverAreaLeft;
+  transform: rotate(-8deg);
+  background: url('/images/planta2.svg') no-repeat;
+  background-size: cover;
+  width: 214.97px;
+  height: 322.31px;
+  ${breakpointsMedia({
+    md: css`
+      width: 415px;
+      height: 505px;
+    `,
+  })}
+`;
+
+Grid.CoverAreaCenter = styled.div`
+  grid-area: coverAreaCenter;
+  align-self: center;
+`;
+
+Grid.CoverAreaRight = styled.div`
+  grid-area: coverAreaRight;
+  background: url('/images/planta.svg') no-repeat;
+  background-size: cover;
+  width: 214.97px;
+  height: 322.31px;
+  align-self: auto;
+  justify-self: flex-end;
+  ${breakpointsMedia({
+    md: css`
+      width: 415px;
+      height: 505px;
+      align-self: flex-end;
+    `,
+  })}
+`;
 
 const Cover = () => (
-  <Box display={{ lg: 'flex' }} flexGrow="5">
-    <Box
-      width={{ xs: '214.97px', md: '38%', lg: '30%' }}
-      height={{ xs: '322.31px', md: '38%' }}
-      minHeight={{ lg: '520px', xl: '505px' }}
-      minWidth={{ lg: '330px', xl: '340.81px' }}
-      transform="rotate(-8deg)"
-      background="url('/images/planta2.svg') no-repeat"
-      backgroundSize="cover"
-    />
-    <Box
-      display="flex"
-      height={{ md: '62%', lg: 'auto' }}
-      flexDirection="column"
-      width="100%"
-      justifyContent={{ xs: 'center', md: 'flex-end' }}
-    >
-      <Box
-        alignSelf="baseline"
-        flexGrow={{ xs: '5', lg: '0' }}
-        padding={{ xs: '0 0 25px 0', md: '0' }}
-      >
-        <Text
-          tag="h1"
-          variant={{ xs: 'titleSM', lg: 'title' }}
-          textAlign="center"
-          margin="0"
-        >
-          MAYRA ZANCHETT MANCHEIN
-        </Text>
-        <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
-          Portifólio
-        </Text>
-      </Box>
+  <Grid>
+    <Grid.CoverAreaLeft />
 
-      <Box
-        width={{ xs: '214.97px', md: '38%', lg: '30%' }}
-        height={{ xs: '100%', md: '50%' }}
-        minHeight={{ xs: '259px', md: '389px' }}
-        minWidth={{ md: '300px', lg: '341.81px' }}
-        background="url('/images/planta.svg') no-repeat"
-        backgroundSize="cover"
-        alignSelf="flex-end"
-      />
-    </Box>
-  </Box>
+    <Grid.CoverAreaCenter>
+      <Text
+        tag="h1"
+        variant={{ xs: 'titleSM', md: 'title' }}
+        textAlign="center"
+        margin="0"
+      >
+        MAYRA ZANCHETT MANCHEIN
+      </Text>
+      <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
+        Portifólio
+      </Text>
+    </Grid.CoverAreaCenter>
+
+    <Grid.CoverAreaRight />
+  </Grid>
 );
 
 export default Cover;
