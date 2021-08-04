@@ -70,7 +70,7 @@ const Cover = () => (
         MAYRA ZANCHETT MANCHEIN
       </Text>
       <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
-        Portifólio
+        Portfolio
       </Text>
     </Grid.CoverAreaCenter>
 
