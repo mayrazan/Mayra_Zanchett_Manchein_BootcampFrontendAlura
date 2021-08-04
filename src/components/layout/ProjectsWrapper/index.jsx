@@ -21,7 +21,7 @@ const ProjectsWrapperContainer = styled.section`
 `;
 
 const ProjectsWrapper = () => (
-  <ProjectsWrapperContainer>
+  <ProjectsWrapperContainer id="ProjectsWrapper">
     <Box>
       <SectionTitle text="MEUS PROJETOS" />
     </Box>

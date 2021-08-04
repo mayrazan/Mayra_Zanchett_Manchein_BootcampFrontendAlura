@@ -35,6 +35,11 @@ const TextBase = styled.span`
     as === 'a' &&
     css`
       cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: black;
+      }
     `}
 `;
 

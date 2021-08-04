@@ -4,10 +4,10 @@ const colors = {
       color: '#ffffff',
     },
     nav: {
-      color: '#e9c46a',
+      color: '#4d7c8a',
     },
     navMain: {
-      color: '#fff8e6',
+      color: '#7f9c96',
     },
   },
   primary: {

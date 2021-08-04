@@ -12,7 +12,12 @@ const LogoContainer = styled.div`
 
 const Logo = () => (
   <LogoContainer>
-    <Text variant={{ md: 'navText' }} color="contrastText" tag="a">
+    <Text
+      variant={{ md: 'navText' }}
+      color="contrastText"
+      tag="a"
+      href="#ProjectsWrapper"
+    >
       {'<ME/>'}
     </Text>
   </LogoContainer>
