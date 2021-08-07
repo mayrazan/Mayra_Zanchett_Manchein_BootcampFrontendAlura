@@ -7,9 +7,3 @@ const breakpoints = {
 };
 
 export default breakpoints;
-
-// export const customMedia = (value, prop) => `
-//   @media screen and (min-width: ${breakpoints[value]}) {
-//     ${prop}
-//   }
-// `;
