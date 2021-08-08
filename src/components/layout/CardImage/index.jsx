@@ -12,15 +12,28 @@ const ImageStyled = styled.img`
     md: css`
       max-height: 390px;
       width: 100%;
+
+      ${({ isDesktop }) =>
+        isDesktop &&
+        css`
+          width: 70%;
+        `}
     `,
   })}
 `;
 
-const CardImage = ({ src, alt }) => <ImageStyled src={src} alt={alt} />;
+const CardImage = ({ src, alt, isDesktop }) => (
+  <ImageStyled src={src} alt={alt} isDesktop={isDesktop} />
+);
 
 export default CardImage;
 
 CardImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  isDesktop: PropTypes.bool,
+};
+
+CardImage.defaultProps = {
+  isDesktop: false,
 };

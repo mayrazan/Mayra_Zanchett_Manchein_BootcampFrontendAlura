@@ -23,7 +23,7 @@ const CardContainer = styled.div`
   &:first-of-type {
     position: relative;
   }
-  
+
   ${breakpointsMedia({
     md: css`
       height: 510px;
@@ -35,7 +35,7 @@ const CardContainer = styled.div`
         height: 320px;
         min-width: 288px;
         max-width: none;
-        flex: 0 0 calc(100% - 20% + 34px);
+        flex: 0 0 calc(100% - 25% + 34px);
         flex-direction: row;
         position: relative;
       }
@@ -52,21 +52,26 @@ const Card = ({ projects }) => {
 
   return changeOrder.map((project) => (
     <CardContainer key={project.id}>
-      <CardImage src={project.img} alt={project.title} />
       {project.type === 'important' && <HighlightContainer text="Destaque" />}
       {project.type === 'important' && isDesktop ? (
-        <Box
-          alignSelf="baseline"
-          display="flex"
-          flexDirection="column"
-          gap="10px"
-          padding="5px 0 0 0"
-        >
-          <CardTitle text={project.title} />
-          <CardText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit." />
-        </Box>
+        <>
+          <CardImage src={project.img} alt={project.title} isDesktop />
+          <Box
+            alignSelf="baseline"
+            display="flex"
+            flexDirection="column"
+            gap="30px"
+            padding="28px 0 0 0"
+          >
+            <CardTitle text={project.title} />
+            <CardText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit." />
+          </Box>
+        </>
       ) : (
-        <CardTitle text={project.title} />
+        <>
+          <CardImage src={project.img} alt={project.title} />
+          <CardTitle text={project.title} />
+        </>
       )}
     </CardContainer>
   ));

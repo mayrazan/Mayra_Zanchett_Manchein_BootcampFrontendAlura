@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Portifólio - Projeto Módulo 1</title>
+        <title>Portfólio - Projeto Módulo 1</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
