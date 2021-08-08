@@ -52,8 +52,8 @@ const Card = ({ projects }) => {
 
   return changeOrder.map((project) => (
     <CardContainer key={project.id}>
-      {project.type === 'important' && <HighlightContainer text="Destaque" />}
-      {project.type === 'important' && isDesktop ? (
+      {project.isHighlight && <HighlightContainer text="Destaque" />}
+      {project.isHighlight && isDesktop ? (
         <>
           <CardImage src={project.img} alt={project.title} isDesktop />
           <Box
