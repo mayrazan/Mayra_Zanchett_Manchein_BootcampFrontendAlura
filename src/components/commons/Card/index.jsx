@@ -7,7 +7,7 @@ import CardTitle from '../CardTitle';
 import CardText from '../CardText';
 import useWindowSize from '../../../hooks/useWindowSize';
 import moveElement from '../../../utils/moveElement';
-import Box from '../Box';
+import Box from '../../layout/Box';
 import HighlightContainer from '../HighlightContainer';
 
 const CardContainer = styled.div`

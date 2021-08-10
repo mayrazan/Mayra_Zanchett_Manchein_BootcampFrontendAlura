@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import projects from '../../../utils/projects';
-import SectionTitle from '../../commons/SectionTitle';
-import Box from '../Box';
+import SectionTitle from '../SectionTitle';
+import Box from '../../layout/Box';
 import Card from '../Card';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
