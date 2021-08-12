@@ -24,6 +24,9 @@
   "lint-staged": {
     "*.js": [
       "yarn lint:fix"
+    ],
+    "*.jsx": [
+      "yarn lint:fix"
     ]
   },
   "devDependencies": {
