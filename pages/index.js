@@ -7,8 +7,8 @@ import ProjectsWrapper from '../src/components/commons/ProjectsWrapper';
 export default function Home() {
   return (
     <>
-      <Cover />
       <Header />
+      <Cover />
       <ProjectsWrapper />
       <Footer />
     </>

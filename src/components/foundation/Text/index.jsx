@@ -38,7 +38,7 @@ const TextBase = styled.span`
       text-decoration: none;
 
       &:hover {
-        color: black;
+        color: ${({ theme }) => theme.colors.secondary.color};
       }
     `}
 `;
@@ -67,5 +67,5 @@ Text.propTypes = {
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
-  color: '#000000',
+  color: '#4e4e4e',
 };

@@ -13,17 +13,36 @@ const ProjectsWrapperContainer = styled.section`
   justify-content: center;
   gap: 32px;
   padding: 32px 40px;
+  background-color: ${({ theme }) => theme.colors.background.cardWrapper.color};
+  padding: 50px 0;
+  border-radius: 5px;
+  align-items: center;
+
   ${breakpointsMedia({
     md: css`
       gap: 50px;
     `,
   })}
+
+  .projects-section {
+    position: relative;
+  }
+  .projects-section::after {
+    content: '';
+    bottom: -11%;
+    left: 50%;
+    height: 4px;
+    width: 50px;
+    position: absolute;
+    background: ${({ theme }) => theme.colors.secondary.color};
+    transform: translateX(-50%);
+  }
 `;
 
 const ProjectsWrapper = () => (
   <ProjectsWrapperContainer id="ProjectsWrapper">
     <Box>
-      <SectionTitle text="MEUS PROJETOS" />
+      <SectionTitle text="MEUS PROJETOS" className="projects-section" />
     </Box>
     <Box
       display="flex"

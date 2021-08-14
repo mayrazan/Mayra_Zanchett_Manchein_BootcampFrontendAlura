@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { useRouter } from 'next/router';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import CardImage from '../CardImage';
 import CardTitle from '../CardTitle';
@@ -11,7 +12,7 @@ import Box from '../../layout/Box';
 import HighlightContainer from '../HighlightContainer';
 
 const CardContainer = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.background.nav.color};
+  border: 1px solid ${({ theme }) => theme.colors.secondary.color};
   width: 290px;
   height: 249px;
   box-sizing: border-box;
@@ -19,6 +20,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 19px;
+  background-color: ${({ theme }) => theme.colors.background.card.color};
 
   &:first-of-type {
     position: relative;
@@ -41,17 +43,40 @@ const CardContainer = styled.div`
       }
     `,
   })}
+
+  &:hover {
+    visibility: visible;
+    animation-duration: 1s;
+    animation-name: fadeInDown;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  box-shadow: 0 15px 30px 0 rgb(111 30 81 / 15%);
+  border-radius: 10px;
 `;
 
 const Card = ({ projects }) => {
   const { isDesktop } = useWindowSize();
+  const router = useRouter();
 
   const changeOrder = isDesktop
     ? moveElement(projects, 0, projects.length)
     : projects;
 
   return changeOrder.map((project) => (
-    <CardContainer key={project.id}>
+    <CardContainer key={project.id} onClick={() => router.push(project.link)}>
       {project.isHighlight && <HighlightContainer text="Destaque" />}
       {project.isHighlight && isDesktop ? (
         <>
@@ -64,7 +89,7 @@ const Card = ({ projects }) => {
             padding="28px 0 0 0"
           >
             <CardTitle text={project.title} />
-            <CardText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit." />
+            <CardText text="Projeto desenvolvido durante a imersão react da Alura, utilizando Next." />
           </Box>
         </>
       ) : (

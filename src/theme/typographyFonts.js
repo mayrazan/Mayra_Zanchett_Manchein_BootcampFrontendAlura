@@ -71,6 +71,11 @@ const typographyFonts = {
     fontWeight: 'normal',
     lineHeight: '43px',
   },
+  // [buttonLink]
+  buttonLink: {
+    fontSize: '14px',
+    fontWeight: '500',
+  },
 };
 
 export default typographyFonts;

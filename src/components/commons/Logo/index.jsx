@@ -18,7 +18,7 @@ const Logo = () => (
       tag="a"
       href="#ProjectsWrapper"
     >
-      {'<ME/>'}
+      {'<Projetos />'}
     </Text>
   </LogoContainer>
 );
