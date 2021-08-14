@@ -21,21 +21,31 @@ const FooterIconContainer = styled.div`
   }
 `;
 
+const socialMediaIcons = [
+  {
+    id: 1,
+    className: 'fa fa-twitter fa-3x icon-3d',
+    link: 'https://twitter.com/mayrazan',
+  },
+  {
+    id: 2,
+    className: 'fa fa-github fa-3x icon-3d',
+    link: 'https://github.com/mayrazan',
+  },
+  {
+    id: 3,
+    className: 'fa fa-linkedin fa-3x icon-3d',
+    link: 'https://linkedin.com/in/mayra-zanchett-manchein',
+  },
+];
+
 const FooterIcon = () => (
   <FooterIconContainer>
-    <Text tag="a" href="https://twitter.com/mayrazan" target="_blank">
-      <i className="fa fa-twitter fa-3x icon-3d" />
-    </Text>
-    <Text tag="a" href="https://github.com/mayrazan" target="_blank">
-      <i className="fa fa-github fa-3x icon-3d" />
-    </Text>
-    <Text
-      tag="a"
-      href="https://linkedin.com/in/mayra-zanchett-manchein"
-      target="_blank"
-    >
-      <i className="fa fa-linkedin fa-3x icon-3d" />
-    </Text>
+    {socialMediaIcons.map((icon) => (
+      <Text tag="a" href={icon.link} target="_blank" key={icon.id}>
+        <i className={icon.className} />
+      </Text>
+    ))}
   </FooterIconContainer>
 );
 
