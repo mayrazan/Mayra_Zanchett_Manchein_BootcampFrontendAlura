@@ -1,20 +1,44 @@
-# Example app with styled-components
+# Portfolio
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+Portfolio de projetos desenvolvido para o desafio referente aos módulos do bootcamp de frontend avançado JAMStack da Alura.
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+## Demo
 
-## Preview
+https://portfolio-alura-bootcamp.vercel.app/
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-## Deploy your own
+## Deployment
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/mayrazan/Mayra_Zanchett_Manchein_BootcampFrontendAlura.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  yarn install
+```
+
+Start the server
+
+```bash
+  yarn start
+```
 
 ## How to use
 
@@ -26,59 +50,110 @@ npx create-next-app --example with-styled-components with-styled-components-app
 yarn create next-app --example with-styled-components with-styled-components-app
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Tech Stack
 
-### Try it on CodeSandbox
+- React
+- NextJS
+- Styled-Components
+- Framer-motion
+- React Lottie
+- Prop-Types
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+## Assignments
 
-### Notes
+**Módulo 1**
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
+- [x] Criar componentes.
+- [x] Adicione PropTypes a todos os componentes.
+- [x] Criar breakpoints
+- [x] Adicione Eslint no projeto
+- [x] Fazer deploy na Vercel
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
+**Módulo 2**
 
-**components/StyledLink.js**
+- [x] Criar todo o sistema de integração para o seu projeto de portfólio.
+- [ ] Criar a função modal.
+- [ ] Criar uma função que altere o estado da aplicação e exiba o componente modal ao clicar no botão de adicionar novo projeto.
+- [ ] Criar uma função que vai alterar o estado da aplicação e fechar o modal, ao clicar fora dele.
+- [ ] Criar o propTypes para essas funções.
+- [ ] Criar uma função de handleChange para atualizar as informações que serão preenchidas dentro do input do formulário.
+- [ ] Exibir o botão de enviar, apenas se os campos do formulário estiverem preenchidos.
+- [ ] Os campos Seu nome, Seu email, Sua Mensagem não podem estar vazios.
+- [ ] Aceitar apenas formatos válidos no campo Seu email.
+- [ ] Criar o motion.div que vai ser a div feita para lidar com todas as propriedades do frame motion
+- [ ] Escolher a animação que você achar mais interessante para o seu projeto.
+- [ ] Criar uma função de onSubmit dentro do form.
+- [ ] Fazer uma requisição POST para [esse endereço](https://contact-form-api-jamstack.herokuapp.com/message) utilizando fetch.
+- [ ] Fazer uma verificação para saber se a resposta do servidor foi ok.
+- [ ] Criar um objeto formStates onde passaremos os estados do componente como por exemplo DEFAULT, DONE, ERROR,seguindo as boas práticas de um código mais explícito e legível.
+- [ ] Usar a biblioteca Lottie para criar as animações de sucesso e erro.
 
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
+## CI / CD
 
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
+Instruções de como criar um sistema de integração e entrega contínua o CI/CD.
 
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+Instalar as seguintes dependências:
 
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
+```bash
+yarn add husky
+yarn add lint-staged
+npm install -g commitizen
+commitizen init cz-conventional-changelog --yarn --dev --exact
+yarn add @commitlint/config-conventional @commitlint/cli --dev
 ```
 
-**pages/index.js**
+Adicionar as seguintes configurações no package.json:
 
-```javascript
-import StyledLink from '../components/StyledLink'
+```json
+"scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install",
+    "commit": "cz",
+    "lint-staged": "lint-staged"
+}
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
+"lint-staged": {
+    "*.js": [
+      "yarn lint:fix"
+    ]
+  },
+
+"husky": {
+    "hooks": {
+      "pre-push": "yarn lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+},
 ```
 
-</details>
+## Terminal commands
+
+**Run**
+
+```bash
+yarn prepare
+```
+
+**Add a hook:**
+
+```bash
+npx husky add .husky/pre-commit "npm test"
+```
+
+**Configure commitlint to use conventional config:**
+
+```bash
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
+Para utilizar os comandos configurados, sempre que for commitar algum arquivo utilize `yarn commit` ao invés de `git commit -m "mensagem"`.
+
+## Badges
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
