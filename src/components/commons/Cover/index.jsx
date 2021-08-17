@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import Text from '../../foundation/Text';
-import ContainerButtonLink from '../ContainerButtonLink';
+import ButtonLink from '../ButtonLink';
 
 const Grid = styled.section`
   width: 100%;
@@ -88,7 +88,7 @@ const Cover = () => (
       <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
         Portfolio
       </Text>
-      <ContainerButtonLink
+      <ButtonLink
         text="Ver projetos"
         href="#ProjectsWrapper"
         direction="down"

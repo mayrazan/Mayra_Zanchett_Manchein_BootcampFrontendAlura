@@ -24,6 +24,9 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
   }
+  textarea {
+  resize: none;
+}
 `;
 
 export default GlobalStyle;

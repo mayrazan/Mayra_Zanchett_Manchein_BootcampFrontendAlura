@@ -72,21 +72,21 @@ yarn create next-app --example with-styled-components with-styled-components-app
 **Módulo 2**
 
 - [x] Criar todo o sistema de integração para o seu projeto de portfólio.
-- [ ] Criar a função modal.
-- [ ] Criar uma função que altere o estado da aplicação e exiba o componente modal ao clicar no botão de adicionar novo projeto.
+- [x] Criar a função modal.
+- [x] Criar uma função que altere o estado da aplicação e exiba o componente modal ao clicar no botão de adicionar novo projeto.
 - [ ] Criar uma função que vai alterar o estado da aplicação e fechar o modal, ao clicar fora dele.
-- [ ] Criar o propTypes para essas funções.
-- [ ] Criar uma função de handleChange para atualizar as informações que serão preenchidas dentro do input do formulário.
-- [ ] Exibir o botão de enviar, apenas se os campos do formulário estiverem preenchidos.
-- [ ] Os campos Seu nome, Seu email, Sua Mensagem não podem estar vazios.
-- [ ] Aceitar apenas formatos válidos no campo Seu email.
-- [ ] Criar o motion.div que vai ser a div feita para lidar com todas as propriedades do frame motion
-- [ ] Escolher a animação que você achar mais interessante para o seu projeto.
-- [ ] Criar uma função de onSubmit dentro do form.
-- [ ] Fazer uma requisição POST para [esse endereço](https://contact-form-api-jamstack.herokuapp.com/message) utilizando fetch.
-- [ ] Fazer uma verificação para saber se a resposta do servidor foi ok.
-- [ ] Criar um objeto formStates onde passaremos os estados do componente como por exemplo DEFAULT, DONE, ERROR,seguindo as boas práticas de um código mais explícito e legível.
-- [ ] Usar a biblioteca Lottie para criar as animações de sucesso e erro.
+- [x] Criar o propTypes para essas funções.
+- [x] Criar uma função de handleChange para atualizar as informações que serão preenchidas dentro do input do formulário.
+- [x] Exibir o botão de enviar, apenas se os campos do formulário estiverem preenchidos.
+- [x] Os campos Seu nome, Seu email, Sua Mensagem não podem estar vazios.
+- [x] Aceitar apenas formatos válidos no campo Seu email.
+- [X] Criar o motion.div que vai ser a div feita para lidar com todas as propriedades do frame motion
+- [x] Escolher a animação que você achar mais interessante para o seu projeto.
+- [x] Criar uma função de onSubmit dentro do form.
+- [x] Fazer uma requisição POST para [esse endereço](https://contact-form-api-jamstack.herokuapp.com/message) utilizando fetch.
+- [x] Fazer uma verificação para saber se a resposta do servidor foi ok.
+- [x] Criar um objeto formStates onde passaremos os estados do componente como por exemplo DEFAULT, DONE, ERROR,seguindo as boas práticas de um código mais explícito e legível.
+- [x] Usar a biblioteca Lottie para criar as animações de sucesso e erro.
 
 ## CI / CD
 

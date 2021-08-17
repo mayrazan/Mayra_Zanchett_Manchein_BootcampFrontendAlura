@@ -10,6 +10,7 @@ const Box = styled.div`
   ${propToStyle('flexGrow')}
   ${propToStyle('flexFlow')}
   ${propToStyle('background')}
+  ${propToStyle('backgroundColor')}
   ${propToStyle('backgroundSize')}
   ${propToStyle('width')}
   ${propToStyle('minWidth')}
@@ -17,6 +18,7 @@ const Box = styled.div`
   ${propToStyle('minHeight')}
   ${propToStyle('transform')}
   ${propToStyle('alignSelf')}
+  ${propToStyle('alignItems')}
   ${propToStyle('padding')}
   ${propToStyle('gap')}
 `;

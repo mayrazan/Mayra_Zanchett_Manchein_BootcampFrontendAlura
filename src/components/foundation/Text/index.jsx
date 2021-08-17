@@ -8,15 +8,18 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 export const TextStyleVariants = (name) => {
   if (name)
     return css`
-      font-size: ${({ theme }) => theme.typographyFonts[name].fontSize};
-      font-weight: ${({ theme }) => theme.typographyFonts[name].fontWeight};
-      line-height: ${({ theme }) => theme.typographyFonts[name].lineHeight};
+      ${({ theme }) => css`
+        font-size: ${theme.typographyFonts[name].fontSize};
+        font-weight: ${theme.typographyFonts[name].fontWeight};
+        line-height: ${theme.typographyFonts[name].lineHeight};
+      `}
     `;
 };
 
 const TextBase = styled.span`
   ${propToStyle('textAlign')}
   ${propToStyle('margin')}
+  ${propToStyle('flexGrow')}
   color: ${({ theme, color }) => color && theme.colors.primary.main[color]};
   ${({ variant }) => {
     if (typeof variant === 'string') {

@@ -76,6 +76,18 @@ const typographyFonts = {
     fontSize: '14px',
     fontWeight: '500',
   },
+  // [contactTitle]
+  contactTitle: {
+    fontSize: '32px',
+    fontWeight: 'normal',
+    lineHeight: '38px',
+  },
+  // [formTitle]
+  formTitle: {
+    fontSize: '24px',
+    fontWeight: 'normal',
+    lineHeight: '29px',
+  },
 };
 
 export default typographyFonts;
