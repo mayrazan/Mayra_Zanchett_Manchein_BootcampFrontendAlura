@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
@@ -147,10 +146,10 @@ const CloseButton = styled.div`
   })}
 `;
 
-export default function Form({ isOpen, onClose, props }) {
+export default function Form({ props }) {
   const handleClose = () => {
-    if (isOpen) {
-      onClose();
+    if (props.isOpen) {
+      props.onClose();
     }
   };
 
@@ -187,12 +186,21 @@ export default function Form({ isOpen, onClose, props }) {
         </Text>
         <CloseButton onClick={handleClose} />
       </Box>
-      <FormContent isOpen={isOpen} />
+      <FormContent isOpen={props.isOpen} />
     </Box>
   );
 }
 
 Form.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
+  props: PropTypes.shape({
+    isOpen: PropTypes.bool,
+    onClose: PropTypes.func,
+  }).isRequired,
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+};
+
+Form.defaultProps = {
+  isOpen: false,
+  onClose: () => {},
 };

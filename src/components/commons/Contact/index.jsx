@@ -10,6 +10,7 @@ const Contact = ({ onClick }) => (
     flexDirection="column"
     alignItems="center"
     padding="30px 0"
+    id="Contact"
   >
     <Text
       variant={{ xs: 'contactTitle', md: 'titleProjectSection' }}

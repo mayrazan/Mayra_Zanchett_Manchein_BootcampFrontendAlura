@@ -74,7 +74,7 @@ yarn create next-app --example with-styled-components with-styled-components-app
 - [x] Criar todo o sistema de integração para o seu projeto de portfólio.
 - [x] Criar a função modal.
 - [x] Criar uma função que altere o estado da aplicação e exiba o componente modal ao clicar no botão de adicionar novo projeto.
-- [ ] Criar uma função que vai alterar o estado da aplicação e fechar o modal, ao clicar fora dele.
+- [x] Criar uma função que vai alterar o estado da aplicação e fechar o modal, ao clicar fora dele.
 - [x] Criar o propTypes para essas funções.
 - [x] Criar uma função de handleChange para atualizar as informações que serão preenchidas dentro do input do formulário.
 - [x] Exibir o botão de enviar, apenas se os campos do formulário estiverem preenchidos.
@@ -95,8 +95,8 @@ Instruções de como criar um sistema de integração e entrega contínua o CI/C
 Instalar as seguintes dependências:
 
 ```bash
-yarn add husky
-yarn add lint-staged
+yarn add husky --dev
+yarn add lint-staged --dev
 npm install -g commitizen
 commitizen init cz-conventional-changelog --yarn --dev --exact
 yarn add @commitlint/config-conventional @commitlint/cli --dev
@@ -138,7 +138,7 @@ yarn prepare
 **Add a hook:**
 
 ```bash
-npx husky add .husky/pre-commit "npm test"
+npx husky add .husky/pre-commit "yarn lint-staged"
 ```
 
 **Configure commitlint to use conventional config:**

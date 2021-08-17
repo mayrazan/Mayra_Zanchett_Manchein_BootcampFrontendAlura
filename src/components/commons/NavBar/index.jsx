@@ -26,7 +26,12 @@ const NavBar = () => (
     <Text tag="a" variant={{ md: 'menuText' }} color="contrastText">
       Sobre Mim
     </Text>
-    <Text tag="a" variant={{ md: 'menuText' }} color="contrastText">
+    <Text
+      tag="a"
+      variant={{ md: 'menuText' }}
+      color="contrastText"
+      href="#Contact"
+    >
       Contato
     </Text>
   </NavContainer>
