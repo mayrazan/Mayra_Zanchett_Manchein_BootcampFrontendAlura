@@ -21,6 +21,7 @@ const CardContainer = styled.div`
   align-items: center;
   gap: 19px;
   background-color: ${({ theme }) => theme.colors.background.card.color};
+  overflow: hidden;
 
   &:first-of-type {
     position: relative;
