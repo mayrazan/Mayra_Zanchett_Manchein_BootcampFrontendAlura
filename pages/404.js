@@ -31,7 +31,7 @@ export default function Page404() {
           tag="h4"
           textAlign="center"
           margin="0"
-          variant={{ xs: 'titleProjectSection', md: 'titleProjectSection' }}
+          variant={{ xs: 'titleProjectSection' }}
         >
           Página não encontrada
         </Text>

@@ -91,12 +91,12 @@ yarn create next-app --example with-styled-components with-styled-components-app
 **Módulo 3**
 
 - [ ] Criar o layout das páginas 404, sobre mim e página do projeto.
-- [ ] Criar uma pasta pages e dentro dela criar uma página sobre mim, uma página de 404 e uma outra que vai ser a página de exibição do projeto.
+- [x] Criar uma pasta pages e dentro dela criar uma página sobre mim, uma página de 404 e uma outra que vai ser a página de exibição do projeto.
 - [ ] Utilizar o componente com o nome de NextLink para envolver todos os links do portfólio.
 - [ ] Na página de projetos vai ser exibida uma imagem, por hora ela vai ser hospedada localmente na nossa aplicação. Para isso vamos criar um arquivo chamado db.json que vai receber as propriedades das imagens como nesse [exemplo](https://github.com/JulianaAmoasei/teste-json-local/blob/main/db.json).
 - [ ] A dica aqui é criar um wrapper para os cards, usar o componente Image do NextJS e passar o endereço da imagem no src como feito nesse [exemplo](https://github.com/JulianaAmoasei/teste-json-local/blob/main/src/components/ProjectCard/index.js).
 - [ ] Por enquanto podemos usar imagens aleatórias do [unsplash](https://unsplash.com/) para popular o db.json e conforme vamos evoluindo no bootcamp vamos chegar em outros meios para hospedar as imagens dos nossos projetos no portfólio.
-- [ ] Fazer um fetch para a [api do github](https://docs.github.com/en/rest/reference/users) utilizando o getStaticProps e listar os seus repositórios na página sobre mim.
+- [x] Fazer um fetch para a [api do github](https://docs.github.com/en/rest/reference/users) utilizando o getStaticProps e listar os seus repositórios na página sobre mim.
 - [ ] Instalar a extensão do [google lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=pt).
 - [ ] Com o lighthouse instalado gere o relatório, ele vai indicar algumas melhorias.
 - [ ] Crie um componente de SEO para servir as páginas do portfólio.

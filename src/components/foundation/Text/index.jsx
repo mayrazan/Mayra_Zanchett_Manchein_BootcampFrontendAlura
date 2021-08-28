@@ -20,6 +20,7 @@ const TextBase = styled.span`
   ${propToStyle('textAlign')}
   ${propToStyle('margin')}
   ${propToStyle('flexGrow')}
+  ${propToStyle('maxWidth')}
   color: ${({ theme, color }) => color && theme.colors.primary.main[color]};
   ${({ variant }) => {
     if (typeof variant === 'string') {

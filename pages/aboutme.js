@@ -1,35 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Footer from '../src/components/commons/Footer';
 import Header from '../src/components/commons/Header';
 import Cover from '../src/components/commons/Cover';
-import Text from '../src/components/foundation/Text';
 import SectionTitle from '../src/components/commons/SectionTitle';
 import SectionWrapper from '../src/components/commons/SectionWrapper';
 import Box from '../src/components/layout/Box';
 import theme from '../src/theme';
+import CardRepos from '../src/components/commons/CardRepos';
+import AboutMeSection from '../src/components/commons/AboutMeSection';
 
-export default function AboutMe() {
+export default function AboutMe({ repos }) {
   return (
     <>
       <Header />
       <Cover gap />
-      <SectionWrapper
-        flexDirection="column"
-        width={{ md: '50%' }}
-        margin="auto"
-      >
-        <SectionTitle text="SOBRE MIM" id="AboutMe" />
-
-        <Text tag="p" textAlign="justify" margin="0">
-          Olá, meu nome é Mayra, sou desenvolvedora front-end e atualmente
-          trabalho com tecnologias como: React, styled components, Typescript.
-          Sou estudante do bootcamp de front-end avançado da Alura e estou no 4º
-          semestre de análise e desenvolvimento de sistemas pela UNOESC. Abaixo
-          você pode conferir meus repositórios do github de projetos
-          desenvolvidos.
-        </Text>
-      </SectionWrapper>
+      <AboutMeSection />
 
       <SectionWrapper
         flexDirection="column"
@@ -42,32 +29,27 @@ export default function AboutMe() {
         >
           <SectionTitle text="MEUS REPOSITÓRIOS" />
 
-          <Box gap="16px" display="flex" flexDirection="column">
-            <div
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-            >
-              <Text tag="p" textAlign="justify" margin="0" bold>
-                Projeto Report
-              </Text>
-              <Text tag="a" textAlign="justify" margin="0" color="link">
-                https://github.com/me/projeto-report
-              </Text>
-            </div>
-
-            <div
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
-            >
-              <Text tag="p" textAlign="justify" margin="0" bold>
-                Projeto Report
-              </Text>
-              <Text tag="a" textAlign="justify" margin="0" color="link">
-                https://github.com/me/projeto-report
-              </Text>
-            </div>
+          <Box display="flex" flexWrap="wrap">
+            <CardRepos repos={repos} />
           </Box>
         </Box>
       </SectionWrapper>
       <Footer />
     </>
   );
+}
+
+AboutMe.propTypes = {
+  repos: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
+
+export async function getStaticProps() {
+  const repos = await fetch('https://api.github.com/users/mayrazan/repos')
+    .then((response) => response.json())
+    .then((res) => res);
+  return {
+    props: {
+      repos,
+    },
+  };
 }

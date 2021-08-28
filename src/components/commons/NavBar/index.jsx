@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import Text from '../../foundation/Text';
 
 const NavContainer = styled.nav`
@@ -11,6 +12,7 @@ const NavContainer = styled.nav`
     background-size: 0% 5px;
   }
 
+  .active,
   a:hover {
     background-size: 100% 5px;
     background-image: linear-gradient(rgb(111, 30, 81), rgb(111, 30, 81));
@@ -21,25 +23,31 @@ const NavContainer = styled.nav`
   }
 `;
 
-const NavBar = () => (
-  <NavContainer>
-    <Text
-      tag="a"
-      variant={{ md: 'menuText' }}
-      color="contrastText"
-      href="/aboutme"
-    >
-      Sobre Mim
-    </Text>
-    <Text
-      tag="a"
-      variant={{ md: 'menuText' }}
-      color="contrastText"
-      href="#Contact"
-    >
-      Contato
-    </Text>
-  </NavContainer>
-);
+const NavBar = () => {
+  const router = useRouter();
 
+  return (
+    <NavContainer>
+      <Text
+        tag="a"
+        variant={{ md: 'menuText' }}
+        color="contrastText"
+        href="/aboutme"
+        className={router.pathname === '/aboutme' ? 'active' : null}
+      >
+        Sobre Mim
+      </Text>
+      {router.pathname === '/' && (
+        <Text
+          tag="a"
+          variant={{ md: 'menuText' }}
+          color="contrastText"
+          href="#Contact"
+        >
+          Contato
+        </Text>
+      )}
+    </NavContainer>
+  );
+};
 export default NavBar;

@@ -47,7 +47,8 @@ const CardContainer = styled.div`
 
   &:hover {
     visibility: visible;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
     animation-name: fadeInDown;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
@@ -55,10 +56,16 @@ const CardContainer = styled.div`
 
   @keyframes fadeInDown {
     0% {
-      transform: translateY(-20px);
+      transform: translateY(-12px);
+    }
+    25% {
+      transform: translateY(-9px);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-6px);
+    }
+    75% {
+      transform: translateY(-3px);
     }
     100% {
       transform: translateY(0);
