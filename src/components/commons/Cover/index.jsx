@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import Text from '../../foundation/Text';
 import ButtonLink from '../ButtonLink';
@@ -23,11 +24,6 @@ const Grid = styled.section`
 
 Grid.CoverAreaLeft = styled.div`
   grid-area: coverAreaLeft;
-  /* transform: rotate(-8deg);
-  background: url('/images/planta2.svg') no-repeat;
-  background-size: cover; */
-  width: 214.97px;
-  height: 322.31px;
   ${breakpointsMedia({
     md: css`
       width: 415px;
@@ -48,19 +44,25 @@ Grid.CoverAreaCenter = styled.div`
   background-position: center;
   border-radius: 30px;
   padding: 15px 0px;
+  ${({ gap }) =>
+    gap &&
+    breakpointsMedia({
+      xs: css`
+        gap: 24px;
+      `,
+      md: css`
+        gap: 32px;
+      `,
+    })}
   ${breakpointsMedia({
     md: css`
       padding: 0;
     `,
-  })}
+  })};
 `;
 
 Grid.CoverAreaRight = styled.div`
   grid-area: coverAreaRight;
-  /* background: url('/images/planta.svg') no-repeat;
-  background-size: cover; */
-  width: 214.97px;
-  height: 322.31px;
   align-self: auto;
   justify-self: flex-end;
   ${breakpointsMedia({
@@ -72,27 +74,33 @@ Grid.CoverAreaRight = styled.div`
   })}
 `;
 
-const Cover = () => (
+const Cover = ({ isHome, children, gap }) => (
   <Grid>
     <Grid.CoverAreaLeft />
 
-    <Grid.CoverAreaCenter>
-      <Text
-        tag="h1"
-        variant={{ xs: 'titleSM', md: 'title' }}
-        textAlign="center"
-        margin="0"
-      >
-        MAYRA ZANCHETT MANCHEIN
-      </Text>
-      <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
-        Portfolio
-      </Text>
-      <ButtonLink
-        text="Ver projetos"
-        href="#ProjectsWrapper"
-        direction="down"
-      />
+    <Grid.CoverAreaCenter gap={gap}>
+      {isHome ? (
+        <>
+          <Text
+            tag="h1"
+            variant={{ xs: 'titleSM', md: 'title' }}
+            textAlign="center"
+            margin="0"
+          >
+            MAYRA ZANCHETT MANCHEIN
+          </Text>
+          <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
+            Portfolio
+          </Text>
+          <ButtonLink
+            text="Ver projetos"
+            href="#ProjectsWrapper"
+            direction="down"
+          />
+        </>
+      ) : (
+        children
+      )}
     </Grid.CoverAreaCenter>
 
     <Grid.CoverAreaRight />
@@ -100,3 +108,15 @@ const Cover = () => (
 );
 
 export default Cover;
+
+Cover.propTypes = {
+  isHome: PropTypes.bool,
+  children: PropTypes.node,
+  gap: PropTypes.bool,
+};
+
+Cover.defaultProps = {
+  isHome: false,
+  children: null,
+  gap: false,
+};

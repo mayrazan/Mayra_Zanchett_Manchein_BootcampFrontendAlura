@@ -29,9 +29,9 @@ const Logo = () => (
       variant={{ md: 'navText' }}
       color="contrastText"
       tag="a"
-      href="#ProjectsWrapper"
+      href="/"
     >
-      {'<Projetos />'}
+      {'<Home />'}
     </Text>
   </LogoContainer>
 );

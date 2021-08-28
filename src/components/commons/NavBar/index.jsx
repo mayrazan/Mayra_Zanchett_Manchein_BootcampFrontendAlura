@@ -23,7 +23,12 @@ const NavContainer = styled.nav`
 
 const NavBar = () => (
   <NavContainer>
-    <Text tag="a" variant={{ md: 'menuText' }} color="contrastText">
+    <Text
+      tag="a"
+      variant={{ md: 'menuText' }}
+      color="contrastText"
+      href="/aboutme"
+    >
       Sobre Mim
     </Text>
     <Text

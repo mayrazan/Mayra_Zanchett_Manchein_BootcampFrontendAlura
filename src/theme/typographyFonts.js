@@ -88,6 +88,12 @@ const typographyFonts = {
     fontWeight: 'normal',
     lineHeight: '29px',
   },
+  // [notFound]
+  notFound: {
+    fontSize: '120px',
+    fontWeight: 'normal',
+    lineHeight: '144px',
+  },
 };
 
 export default typographyFonts;

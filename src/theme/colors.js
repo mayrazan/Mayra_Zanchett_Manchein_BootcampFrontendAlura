@@ -20,6 +20,7 @@ const colors = {
     main: {
       color: '#4e4e4e',
       contrastText: '#ffffff',
+      link: '#0066FF',
     },
   },
   secondary: {

@@ -8,9 +8,9 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 export const TextStyleVariants = (name) => {
   if (name)
     return css`
-      ${({ theme }) => css`
+      ${({ theme, bold }) => css`
         font-size: ${theme.typographyFonts[name].fontSize};
-        font-weight: ${theme.typographyFonts[name].fontWeight};
+        font-weight: ${bold ? 'bold' : theme.typographyFonts[name].fontWeight};
         line-height: ${theme.typographyFonts[name].lineHeight};
       `}
     `;
@@ -46,12 +46,20 @@ const TextBase = styled.span`
     `}
 `;
 
-export default function Text({ variant, children, tag, color, ...props }) {
+export default function Text({
+  variant,
+  children,
+  tag,
+  color,
+  bold,
+  ...props
+}) {
   return (
     <TextBase
       as={tag}
       variant={variant}
       color={color}
+      bold={bold}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
@@ -65,10 +73,12 @@ Text.propTypes = {
   variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
+  bold: PropTypes.bool,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   color: '#4e4e4e',
+  bold: false,
 };
