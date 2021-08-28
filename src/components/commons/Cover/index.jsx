@@ -74,7 +74,20 @@ Grid.CoverAreaRight = styled.div`
   })}
 `;
 
-const Cover = ({ isHome, children, gap }) => (
+const ProfileImage = styled.img`
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+  align-self: center;
+  ${breakpointsMedia({
+    md: css`
+      width: 450px;
+      height: 450px;
+    `,
+  })}
+`;
+
+const Cover = ({ isHome, gap }) => (
   <Grid>
     <Grid.CoverAreaLeft />
 
@@ -99,7 +112,16 @@ const Cover = ({ isHome, children, gap }) => (
           />
         </>
       ) : (
-        children
+        <>
+          <ProfileImage
+            src="https://github.com/mayrazan.png"
+            alt="imagem de perfil"
+          />
+          <Text tag="h4" variant="subTitle" textAlign="center" margin="0">
+            Desenvolvedora Front-end
+          </Text>
+          <ButtonLink text="Sobre mim" href="#AboutMe" direction="down" />
+        </>
       )}
     </Grid.CoverAreaCenter>
 
@@ -111,12 +133,10 @@ export default Cover;
 
 Cover.propTypes = {
   isHome: PropTypes.bool,
-  children: PropTypes.node,
   gap: PropTypes.bool,
 };
 
 Cover.defaultProps = {
   isHome: false,
-  children: null,
   gap: false,
 };
