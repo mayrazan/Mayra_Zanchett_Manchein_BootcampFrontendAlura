@@ -9,7 +9,7 @@ import SectionWrapper from '../src/components/commons/SectionWrapper';
 import Box from '../src/components/layout/Box';
 import theme from '../src/theme';
 import CardRepos from '../src/components/commons/CardRepos';
-import AboutMeSection from '../src/components/commons/AboutMeSection';
+import AboutMeSection from '../src/components/sections/AboutMeSection';
 
 export default function AboutMe({ repos }) {
   return (

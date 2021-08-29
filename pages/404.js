@@ -16,10 +16,9 @@ export default function Page404() {
         justifyContent="center"
         flexDirection="column"
         margin="auto"
-        height={{ xs: 'calc(100vh - 78px + 194px)', md: 'auto' }}
       >
         <Lottie
-          width="450px"
+          width="100%"
           height="450px"
           config={{
             animationData: notFound,

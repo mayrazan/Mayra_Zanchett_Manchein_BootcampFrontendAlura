@@ -84,7 +84,7 @@ const Card = ({ projects }) => {
     : projects;
 
   return changeOrder.map((project) => (
-    <CardContainer key={project.id} onClick={() => router.push(project.link)}>
+    <CardContainer key={project.id} onClick={() => router.push(`projects/${project.id}`)}>
       {project.isHighlight && <HighlightContainer text="Destaque" />}
       {project.isHighlight && isDesktop ? (
         <>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from '../../foundation/Text';
-import SectionTitle from '../SectionTitle';
-import SectionWrapper from '../SectionWrapper';
+import SectionTitle from '../../commons/SectionTitle';
+import SectionWrapper from '../../commons/SectionWrapper';
 
 const AboutMeSection = () => (
   <SectionWrapper flexDirection="column" width={{ md: '50%' }} margin="auto">
