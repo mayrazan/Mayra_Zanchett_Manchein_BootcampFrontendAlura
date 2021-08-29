@@ -7,6 +7,13 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const TextStyled = styled(Text)`
   text-transform: ${({ isRepo }) => (isRepo ? 'uppercase' : 'none')};
+  overflow-wrap: break-word;
+  width: 50%;
+  ${breakpointsMedia({
+    md: css`
+      width: auto;
+    `,
+  })}
   ${({ isRepo }) => {
     if (isRepo) {
       return TextStyleVariants('titleProjectSM');

@@ -6,7 +6,6 @@ import CardText from '../CardText';
 import Box from '../../layout/Box';
 import Text from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import useWindowSize from '../../../hooks/useWindowSize';
 
 const CardContainer = styled.div`
   box-sizing: border-box;
@@ -38,7 +37,7 @@ const CardInfo = styled.div`
 `;
 
 const CardLink = styled.a`
-  padding: 10px;
+  padding: 6px;
   color: ${({ theme }) => theme.colors.background.main.color};
   text-align: center;
   border-radius: 50%;
@@ -48,18 +47,35 @@ const CardLink = styled.a`
   text-decoration: none;
   cursor: pointer;
 
+  ${breakpointsMedia({
+    md: css`
+      padding: 10px;
+    `,
+  })}
+
   &:hover {
     border-color: ${({ theme }) => theme.colors.background.hoverBtn.color};
   }
 `;
 
 const CardIcon = styled.i`
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   line-height: 50px;
   border-radius: 50%;
   transition: all 0.5s ease;
   background: ${({ theme }) => theme.colors.secondary.color};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${breakpointsMedia({
+    md: css`
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+    `,
+  })}
 
   &:hover {
     background: ${({ theme }) => theme.colors.background.hoverBtn.color};
@@ -78,28 +94,17 @@ const ButtonStyled = styled.button`
 `;
 
 const CardRepos = ({ repos }) => {
-  const { isDesktop } = useWindowSize();
-  const [page, setPage] = useState(0);
+  const [pages, setPages] = useState(0);
 
-  const nextRepos = () => {
-    if (isDesktop) {
-      setPage((prev) => prev + 6);
-    } else {
-      setPage((prev) => prev + 3);
-    }
+  const onNextPage = () => {
+    setPages((prev) => prev + 4);
   };
 
-  const previousRepos = () => {
-    if (isDesktop) {
-      setPage((prev) => prev - 6);
-    } else {
-      setPage((prev) => prev - 3);
-    }
+  const onPrevPage = () => {
+    setPages((prev) => prev - 4);
   };
 
-  const currentRepos = isDesktop
-    ? repos.slice(page, page + 6)
-    : repos.slice(page, page + 3);
+  const currentRepos = repos.slice(pages, pages + 4);
 
   return (
     <>
@@ -112,6 +117,8 @@ const CardRepos = ({ repos }) => {
               justifyContent="space-between"
               alignItems="center"
               height="inherit"
+              flexDirection={{ xs: 'column', md: 'row' }}
+              gap={{ xs: '10px', md: '0' }}
             >
               <div
                 style={{
@@ -119,6 +126,8 @@ const CardRepos = ({ repos }) => {
                   display: 'flex',
                   flexDirection: 'column',
                   height: '100%',
+                  alignSelf: 'baseline',
+                  width: '100%',
                 }}
               >
                 <CardTitle
@@ -130,13 +139,13 @@ const CardRepos = ({ repos }) => {
                 <CardText
                   text={repo.description ? repo.description : ''}
                   textAlign="start"
-                  maxWidth="80%"
+                  maxWidth={{ md: '80%' }}
                 />
                 <Text tag="span" margin="0" bold>
                   {repo.language}
                 </Text>
               </div>
-              <div>
+              <div style={{ alignSelf: 'flex-end' }}>
                 <CardLink href={repo.html_url} target="_blank">
                   <CardIcon className="fa fa-arrow-right" />
                 </CardLink>
@@ -146,17 +155,13 @@ const CardRepos = ({ repos }) => {
         </CardContainer>
       ))}
       <div style={{ marginLeft: 'auto' }}>
-        <ButtonStyled
-          type="button"
-          onClick={previousRepos}
-          disabled={page === 0}
-        >
+        <ButtonStyled type="button" onClick={onPrevPage} disabled={!pages}>
           <CardIcon className="fa fa-arrow-left" />
         </ButtonStyled>
         <ButtonStyled
           type="button"
-          onClick={nextRepos}
-          disabled={currentRepos.length < 6 && currentRepos.length < 3}
+          onClick={onNextPage}
+          disabled={pages + currentRepos.length >= repos.length}
         >
           <CardIcon className="fa fa-arrow-right" />
         </ButtonStyled>
