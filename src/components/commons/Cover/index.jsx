@@ -19,7 +19,7 @@ const Cover = ({ isHome, gap }) => (
           >
             MAYRA ZANCHETT MANCHEIN
           </Text>
-          <Text tag="h3" variant="subTitle" textAlign="center" margin="0">
+          <Text tag="h2" variant="subTitle" textAlign="center" margin="0">
             Portfolio
           </Text>
           <ButtonLink
@@ -33,6 +33,7 @@ const Cover = ({ isHome, gap }) => (
           <S.ProfileImage
             src="https://github.com/mayrazan.png"
             alt="imagem de perfil"
+            loading="lazy"
           />
           <Text tag="h4" variant="subTitle" textAlign="center" margin="0">
             Desenvolvedora Front-end

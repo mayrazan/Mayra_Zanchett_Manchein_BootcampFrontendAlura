@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
@@ -22,8 +23,14 @@ const ImageStyled = styled.img`
   })}
 `;
 
-const CardImage = ({ src, alt, isDesktop }) => (
-  <ImageStyled src={src} alt={alt} isDesktop={isDesktop} />
+const CardImage = ({ src, alt, isDesktop, ...props }) => (
+  <ImageStyled
+    loading="lazy"
+    src={src}
+    alt={alt}
+    isDesktop={isDesktop}
+    {...props}
+  />
 );
 
 export default CardImage;

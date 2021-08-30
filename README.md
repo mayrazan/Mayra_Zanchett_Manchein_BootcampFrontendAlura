@@ -102,7 +102,7 @@ yarn create next-app --example with-styled-components with-styled-components-app
 - [x] Crie um componente de SEO para servir as páginas do portfólio.
 - [x] Use o [metatags.io](https://metatags.io), aqui você pode usar o site da [Alura](www.alura.com.br) como exemplo para pegar as metatags, e utilize dentro do componente de SEO.
 - [x] Crie o robots.txt para melhorar a indexação com Google.
-- [ ] Faça o deploy na Vercel e gere o relatório do lighthouse novamente e veja se o SEO aumentou.
+- [x] Faça o deploy na Vercel e gere o relatório do lighthouse novamente e veja se o SEO aumentou.
 - [x] Abstrair componentes comuns que são repetidos em páginas diferentes.
 
 ## CI / CD

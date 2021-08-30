@@ -25,7 +25,7 @@ const BoxStyled = styled(Box)`
 const SectionTitle = ({ text, ...props }) => (
   <BoxStyled>
     <Text
-      tag="h4"
+      tag="h3"
       variant={{ xs: 'titleProjectSection', md: 'title2' }}
       margin="0"
       {...props}

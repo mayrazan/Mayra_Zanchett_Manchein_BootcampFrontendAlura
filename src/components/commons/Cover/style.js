@@ -31,7 +31,7 @@ const CoverAreaLeft = styled.div`
 const CoverAreaCenter = styled.div`
   grid-area: coverAreaCenter;
   align-self: center;
-  background: url('/images/bg1.jpg') no-repeat;
+  background: url('/images/bg1-phone.jpg') no-repeat;
   background-size: cover;
   height: 100%;
   display: flex;
@@ -44,15 +44,17 @@ const CoverAreaCenter = styled.div`
     gap &&
     breakpointsMedia({
       xs: css`
-        gap: 24px;
-      `,
-      md: css`
-        gap: 32px;
+        gap: 10px;
       `,
     })}
   ${breakpointsMedia({
     md: css`
       padding: 0;
+      @media screen and (max-height: 600px) {
+        height: auto;
+      }
+      background: url('/images/bg1.jpg') no-repeat;
+      background-size: cover;
     `,
   })};
 `;
@@ -77,8 +79,14 @@ const ProfileImage = styled.img`
   align-self: center;
   ${breakpointsMedia({
     md: css`
-      width: 450px;
-      height: 450px;
+      width: 385px;
+      height: 385px;
+      @media screen and (max-height: 600px) {
+        max-width: 385px;
+        max-height: 385px;
+        width: 60%;
+        height: auto;
+      }
     `,
   })}
 `;

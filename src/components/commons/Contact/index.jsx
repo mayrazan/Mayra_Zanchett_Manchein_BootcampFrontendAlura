@@ -19,7 +19,14 @@ const Contact = ({ onClick }) => (
     >
       Entre em contato
     </Text>
-    <ButtonLink as="button" onClick={onClick} direction="right" text="+" font />
+    <ButtonLink
+      as="button"
+      onClick={onClick}
+      direction="right"
+      text="+"
+      font
+      aria-label="Entre em contato"
+    />
   </Box>
 );
 

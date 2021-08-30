@@ -26,7 +26,11 @@ const Card = ({ projects }) => {
       {project.isHighlight && <HighlightContainer text="Destaque" />}
       {project.isHighlight && isDesktop ? (
         <>
-          <CardImage src={project.img} alt={project.title} isDesktop />
+          <CardImage
+            src={isDesktop ? project.img : project.imgPhone}
+            alt={project.title}
+            isDesktop
+          />
           <Box
             alignSelf="baseline"
             display="flex"
@@ -40,7 +44,10 @@ const Card = ({ projects }) => {
         </>
       ) : (
         <>
-          <CardImage src={project.img} alt={project.title} />
+          <CardImage
+            src={isDesktop ? project.img : project.imgPhone}
+            alt={project.title}
+          />
           <CardTitle text={project.title} />
         </>
       )}

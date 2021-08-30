@@ -59,7 +59,12 @@ const CardRepos = ({ repos }) => {
                 </Text>
               </div>
               <Box alignSelf={{ xs: 'flex-end', md: 'center' }}>
-                <S.CardLink href={repo.html_url} target="_blank">
+                <S.CardLink
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Conferir"
+                >
                   <S.CardIcon className="fa fa-arrow-right" />
                 </S.CardLink>
               </Box>
@@ -68,13 +73,19 @@ const CardRepos = ({ repos }) => {
         </S.CardContainer>
       ))}
       <div style={{ marginLeft: 'auto' }}>
-        <S.ButtonStyled type="button" onClick={onPrevPage} disabled={!pages}>
+        <S.ButtonStyled
+          type="button"
+          onClick={onPrevPage}
+          disabled={!pages}
+          aria-label="Anterior"
+        >
           <S.CardIcon className="fa fa-arrow-left" />
         </S.ButtonStyled>
         <S.ButtonStyled
           type="button"
           onClick={onNextPage}
           disabled={pages + currentRepos.length >= repos.length}
+          aria-label="Próximo"
         >
           <S.CardIcon className="fa fa-arrow-right" />
         </S.ButtonStyled>

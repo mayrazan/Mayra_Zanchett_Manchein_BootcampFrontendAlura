@@ -18,7 +18,11 @@ export default function App({ Component, pageProps }) {
         />
         <link
           rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css"
         />
       </Head>
 

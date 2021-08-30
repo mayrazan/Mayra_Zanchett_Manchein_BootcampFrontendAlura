@@ -108,6 +108,7 @@ function FormContent({ isOpen }) {
         disabled={isFormInvalid}
         text="Enviar"
         direction="right"
+        aria-label="Enviar"
       />
 
       {isFormSubmited && submissionStatus === formStates.LOADING && (
@@ -177,7 +178,7 @@ export default function Form({ props }) {
       >
         <Text
           variant={{ xs: 'formTitle', md: 'titleProjectSection' }}
-          tag="h6"
+          tag="h5"
           margin="0"
           flexGrow="5"
           textAlign="center"

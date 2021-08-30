@@ -10,6 +10,7 @@ const FooterIconContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 32px;
+  align-items: center;
 
   .icon-3d {
     padding: 10px;
@@ -24,17 +25,17 @@ const FooterIconContainer = styled.div`
 const socialMediaIcons = [
   {
     id: 1,
-    className: 'fa fa-twitter fa-3x icon-3d',
+    className: 'fa fa-twitter fa-2x icon-3d',
     link: 'https://twitter.com/mayrazan',
   },
   {
     id: 2,
-    className: 'fa fa-github fa-3x icon-3d',
+    className: 'fa fa-github fa-2x icon-3d',
     link: 'https://github.com/mayrazan',
   },
   {
     id: 3,
-    className: 'fa fa-linkedin fa-3x icon-3d',
+    className: 'fa fa-linkedin fa-2x icon-3d',
     link: 'https://linkedin.com/in/mayra-zanchett-manchein',
   },
 ];
@@ -42,7 +43,14 @@ const socialMediaIcons = [
 const FooterIcon = () => (
   <FooterIconContainer>
     {socialMediaIcons.map((icon) => (
-      <Text tag="a" href={icon.link} target="_blank" key={icon.id}>
+      <Text
+        tag="a"
+        href={icon.link}
+        target="_blank"
+        key={icon.id}
+        rel="noreferrer"
+        aria-label="Ícone rede social"
+      >
         <i className={icon.className} />
       </Text>
     ))}

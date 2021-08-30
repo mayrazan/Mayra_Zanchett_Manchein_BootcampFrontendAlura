@@ -29,7 +29,7 @@ const TextStyled = styled(Text)`
 `;
 
 const CardTitle = ({ text, isRepo, ...props }) => (
-  <TextStyled tag="h5" isRepo={isRepo} margin="0" {...props}>
+  <TextStyled tag="h4" isRepo={isRepo} margin="0" {...props}>
     {text}
   </TextStyled>
 );

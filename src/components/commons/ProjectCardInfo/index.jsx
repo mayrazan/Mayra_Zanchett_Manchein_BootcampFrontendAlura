@@ -18,10 +18,12 @@ export default function ProjectCardInfo({ title, description, link }) {
       <SectionTitle text={title.toUpperCase()} />
       <SectionWrapper flexDirection={{ xs: 'column', md: 'row' }}>
         <Image
-          src="https://source.unsplash.com/random"
+          src="https://source.unsplash.com/random/400x400"
           alt="imagem do projeto"
           width={400}
           height={400}
+          loading="lazy"
+          srcSet="https://source.unsplash.com/random/400x400"
         />
         <Box
           width={{ md: '50%' }}
@@ -40,6 +42,8 @@ export default function ProjectCardInfo({ title, description, link }) {
             target="_blank"
             direction="right"
             text="Confira"
+            rel="noreferrer"
+            aria-label="Confira"
           />
         </Box>
       </SectionWrapper>
