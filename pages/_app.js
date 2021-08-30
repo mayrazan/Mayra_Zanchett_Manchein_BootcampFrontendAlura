@@ -1,15 +1,11 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import GlobalStyle from '../src/theme/GlobalStyle';
-import theme from '../src/theme';
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Portfólio - Projeto Módulo 1</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -26,11 +22,8 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
 
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
-      </ThemeProvider>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component {...pageProps} />
     </>
   );
 }
