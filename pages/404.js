@@ -1,15 +1,13 @@
 import React from 'react';
 import { Lottie } from '@crello/react-lottie';
-import Footer from '../src/components/commons/Footer';
-import Header from '../src/components/commons/Header';
 import Text from '../src/components/foundation/Text';
 import notFound from '../src/components/animations/notFound.json';
 import Box from '../src/components/layout/Box';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-export default function Page404() {
+function Page404() {
   return (
     <>
-      <Header />
       <Box
         display="flex"
         alignItems="center"
@@ -35,7 +33,14 @@ export default function Page404() {
           Página não encontrada
         </Text>
       </Box>
-      <Footer />
     </>
   );
 }
+
+export default websitePageHOC(Page404, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: '404',
+    },
+  },
+});

@@ -1,8 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
-import Footer from '../src/components/commons/Footer';
-import Header from '../src/components/commons/Header';
-import Cover from '../src/components/commons/Cover';
 import SectionWrapper from '../src/components/commons/SectionWrapper';
 import Modal from '../src/components/commons/Modal';
 import Form from '../src/components/patterns/Form';
@@ -12,8 +9,9 @@ import Box from '../src/components/layout/Box';
 import Card from '../src/components/commons/Card';
 import projects from '../src/utils/projects';
 import theme from '../src/theme';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-export default function Home() {
+function Home() {
   const [modal, setModal] = useState(false);
 
   const handleModal = () => {
@@ -36,8 +34,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <Cover isHome />
       <SectionWrapper
         id="ProjectsWrapper"
         flexDirection="column"
@@ -61,7 +57,20 @@ export default function Home() {
         {(props) => <Form props={props} />}
       </Modal>
       <Contact onClick={handleModal} />
-      <Footer />
     </>
   );
 }
+
+export default websitePageHOC(Home, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Home',
+    },
+    coverProps: {
+      isHome: true,
+    },
+    menuProps: {
+      display: true,
+    },
+  },
+});

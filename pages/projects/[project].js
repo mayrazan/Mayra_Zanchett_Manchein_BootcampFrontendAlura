@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Footer from '../../src/components/commons/Footer';
-import Header from '../../src/components/commons/Header';
 import db from '../../db.json';
 import ProjectCardInfo from '../../src/components/commons/ProjectCardInfo';
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-export default function Project({ project }) {
+function Project({ project }) {
   return (
     <>
-      <Header />
       <div style={{ margin: 'auto' }}>
         <ProjectCardInfo
           key={project[0].id}
@@ -17,10 +15,17 @@ export default function Project({ project }) {
           link={project[0].link}
         />
       </div>
-      <Footer />
     </>
   );
 }
+
+export default websitePageHOC(Project, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Projeto',
+    },
+  },
+});
 
 Project.propTypes = {
   project: PropTypes.arrayOf(
