@@ -9,7 +9,12 @@ import Box from '../../layout/Box';
 
 export default function ProjectCardInfo({ title, description, link }) {
   return (
-    <Box display="flex" flexDirection="column" gap="30px">
+    <Box
+      display="flex"
+      flexDirection="column"
+      gap="30px"
+      padding={{ xs: '24px 0 0', md: '0' }}
+    >
       <SectionTitle text={title.toUpperCase()} />
       <SectionWrapper flexDirection={{ xs: 'column', md: 'row' }}>
         <Image
@@ -31,7 +36,6 @@ export default function ProjectCardInfo({ title, description, link }) {
           </Text>
 
           <ButtonLink
-            as="a"
             href={link}
             target="_blank"
             direction="right"
