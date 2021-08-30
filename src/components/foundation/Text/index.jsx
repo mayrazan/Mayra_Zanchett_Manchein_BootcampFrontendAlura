@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import Link from '../../commons/Link';
 
 // eslint-disable-next-line consistent-return
 export const TextStyleVariants = (name) => {
@@ -55,15 +57,22 @@ export default function Text({
   bold,
   ...props
 }) {
+  if (props.href) {
+    return (
+      <TextBase
+        as={Link}
+        variant={variant}
+        href={props.href}
+        color={color}
+        bold={bold}
+        {...props}
+      >
+        {children}
+      </TextBase>
+    );
+  }
   return (
-    <TextBase
-      as={tag}
-      variant={variant}
-      color={color}
-      bold={bold}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
-    >
+    <TextBase as={tag} variant={variant} color={color} bold={bold} {...props}>
       {children}
     </TextBase>
   );
@@ -75,6 +84,7 @@ Text.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   bold: PropTypes.bool,
+  href: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -82,4 +92,5 @@ Text.defaultProps = {
   variant: 'paragraph1',
   color: '#4e4e4e',
   bold: false,
+  href: null,
 };
