@@ -22,7 +22,7 @@ const CardRepos = ({ repos }) => {
   return (
     <>
       {currentRepos.map((repo) => (
-        <S.CardContainer key={repo.id}>
+        <S.CardContainer key={repo.id} length={repo.name.length}>
           <S.CardInfo>
             <Box
               display="flex"
@@ -72,7 +72,7 @@ const CardRepos = ({ repos }) => {
           </S.CardInfo>
         </S.CardContainer>
       ))}
-      <div style={{ marginLeft: 'auto' }}>
+      <div style={{ marginLeft: 'auto', marginTop: 'auto' }}>
         <S.ButtonStyled
           type="button"
           onClick={onPrevPage}

@@ -10,7 +10,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   ${breakpointsMedia({
     md: css`
-      flex: 0 0 50%;
+      flex: ${({ length }) => (length > 40 ? 'auto' : '0 0 50%')};
     `,
   })}
 `;
