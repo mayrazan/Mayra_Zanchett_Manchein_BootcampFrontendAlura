@@ -105,6 +105,13 @@ yarn create next-app --example with-styled-components with-styled-components-app
 - [x] Faça o deploy na Vercel e gere o relatório do lighthouse novamente e veja se o SEO aumentou.
 - [x] Abstrair componentes comuns que são repetidos em páginas diferentes.
 
+**Módulo 4**
+
+- [x] Nessa tarefa você vai testar o formulário de entre em contato utilizando o cypress. Para isso precisamos identificar como uma pessoa faria para entrar em contato com a gente através do botão de contato.
+- [x] Para os testes de unidades, primeiro precisamos configurar o ambiente para poder utilizar a biblioteca Jest.
+- [ ] Nessa tarefa você vai precisar testar unidades do portfólio utilizando a biblioteca Jest, como por exemplo, um teste de unidade de como a função propToStyle() deveria se comportar.
+- [ ] Nesse desafio você vai confirmar se o React está de fato renderizando/exibindo o componente do jeito esperado. Depois de seguir as instalações da biblioteca React Testing Library e configurar o ambiente como feito em aula, você pode testar por exemplo o componente <TextField />.
+
 ## CI / CD
 
 Instruções de como criar um sistema de integração e entrega contínua o CI/CD.
