@@ -9,7 +9,7 @@ import CardRepos from '../src/components/commons/CardRepos';
 import AboutMeSection from '../src/components/sections/AboutMeSection';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-function AboutMe({ repos }) {
+function AboutMe({ repos, totalRepos }) {
   return (
     <>
       <AboutMeSection />
@@ -26,7 +26,7 @@ function AboutMe({ repos }) {
           <SectionTitle text="MEUS REPOSITÓRIOS" textAlign={{ xs: 'center' }} />
 
           <Box display="flex" flexWrap="wrap">
-            <CardRepos repos={repos} />
+            <CardRepos repos={repos} totalRepos={totalRepos} />
           </Box>
         </Box>
       </SectionWrapper>
@@ -50,15 +50,23 @@ export default websitePageHOC(AboutMe, {
 
 AboutMe.propTypes = {
   repos: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  totalRepos: PropTypes.number.isRequired,
 };
 
 export async function getStaticProps() {
-  const repos = await fetch('https://api.github.com/users/mayrazan/repos')
+  const repos = await fetch(
+    'https://api.github.com/users/mayrazan/repos?page=1&per_page=4',
+  )
+    .then((response) => response.json())
+    .then((res) => res);
+
+  const totalRepos = await fetch('https://api.github.com/users/mayrazan/repos')
     .then((response) => response.json())
     .then((res) => res);
   return {
     props: {
       repos,
+      totalRepos: totalRepos.length,
     },
   };
 }

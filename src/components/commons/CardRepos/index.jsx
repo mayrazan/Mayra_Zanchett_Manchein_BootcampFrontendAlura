@@ -1,82 +1,106 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CardTitle from '../CardTitle';
 import CardText from '../CardText';
 import Box from '../../layout/Box';
 import Text from '../../foundation/Text';
 import * as S from './style';
+import useWindowSize from '../../../hooks/useWindowSize';
 
-const CardRepos = ({ repos }) => {
-  const [pages, setPages] = useState(0);
+const CardRepos = ({ repos, totalRepos }) => {
+  const [pages, setPages] = useState(1);
+  const [currentRepos, setCurrentRepos] = useState(repos);
 
   const onNextPage = () => {
-    setPages((prev) => prev + 4);
+    setPages((prev) => prev + 1);
   };
 
   const onPrevPage = () => {
-    setPages((prev) => prev - 4);
+    setPages((prev) => prev - 1);
   };
 
-  const currentRepos = repos.slice(pages, pages + 4);
+  useEffect(() => {
+    if (pages > 1) {
+      (async () => {
+        const pageRepos = await fetch(
+          `https://api.github.com/users/mayrazan/repos?page=${pages}&per_page=4`,
+        )
+          .then((response) => response.json())
+          .then((res) => res);
+        setCurrentRepos(pageRepos);
+      })();
+    } else {
+      setCurrentRepos(repos);
+    }
+  }, [pages]);
+
+  // const currentRepos = repos.slice(pages, pages + 4);
+  const { isDesktop } = useWindowSize();
 
   return (
     <>
-      {currentRepos.map((repo) => (
-        <S.CardContainer key={repo.id} length={repo.name.length}>
-          <S.CardInfo>
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="space-between"
-              alignItems="center"
-              height="inherit"
-              flexDirection={{ xs: 'column', md: 'row' }}
-              gap={{ xs: '10px', md: '0' }}
-            >
-              <div
-                style={{
-                  gap: '10px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%',
-                  alignSelf: 'baseline',
-                  width: '100%',
-                }}
+      {currentRepos.map((repo) => {
+        const verify =
+          isDesktop && repo.name.length > 40
+            ? `${repo.name.substring(0, 23)}...`
+            : `${repo.name.substring(0, 10)}...`;
+        return (
+          <S.CardContainer key={repo.id}>
+            <S.CardInfo>
+              <Box
+                display="flex"
+                width="100%"
+                justifyContent="space-between"
+                alignItems="center"
+                flexDirection={{ xs: 'column', md: 'row' }}
+                gap={{ xs: '10px', md: '0' }}
+                alignSelf={{ xs: 'baseline' }}
+                height={{ xs: '100%', md: 'inherit' }}
               >
-                <CardTitle
-                  text={repo.name}
-                  textAlign="justify"
-                  color="repo"
-                  isRepo
-                />
-                <CardText
-                  text={repo.description ? repo.description : ''}
-                  textAlign="start"
-                  maxWidth={{ md: '80%' }}
-                />
-                <Text tag="span" margin="0" bold>
-                  {repo.language}
-                </Text>
-              </div>
-              <Box alignSelf={{ xs: 'flex-end', md: 'center' }}>
-                <S.CardLink
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Conferir"
+                <div
+                  style={{
+                    gap: '10px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    alignSelf: 'baseline',
+                  }}
                 >
-                  <S.CardIcon className="fa fa-arrow-right" />
-                </S.CardLink>
+                  <CardTitle
+                    text={repo.name.length > 40 ? verify : repo.name}
+                    textAlign="justify"
+                    color="repo"
+                    isRepo
+                  />
+                  <CardText
+                    text={repo.description ? repo.description : ''}
+                    textAlign="start"
+                  />
+                  <Text tag="span" margin="0" bold>
+                    {repo.language}
+                  </Text>
+                </div>
+                <Box alignSelf={{ xs: 'flex-end', md: 'center' }}>
+                  <S.CardLink
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Conferir"
+                  >
+                    <S.CardIcon className="fa fa-arrow-right" />
+                  </S.CardLink>
+                </Box>
               </Box>
-            </Box>
-          </S.CardInfo>
-        </S.CardContainer>
-      ))}
+            </S.CardInfo>
+          </S.CardContainer>
+        );
+      })}
+
       <div style={{ marginLeft: 'auto', marginTop: 'auto' }}>
         <S.ButtonStyled
           type="button"
           onClick={onPrevPage}
-          disabled={!pages}
+          disabled={pages === 1}
           aria-label="Anterior"
         >
           <S.CardIcon className="fa fa-arrow-left" />
@@ -84,7 +108,8 @@ const CardRepos = ({ repos }) => {
         <S.ButtonStyled
           type="button"
           onClick={onNextPage}
-          disabled={pages + currentRepos.length >= repos.length}
+          // disabled={pages + currentRepos.length >= repos.length}
+          disabled={currentRepos.length * pages >= totalRepos}
           aria-label="Próximo"
         >
           <S.CardIcon className="fa fa-arrow-right" />
@@ -106,4 +131,5 @@ CardRepos.propTypes = {
       html_url: PropTypes.string,
     }),
   ).isRequired,
+  totalRepos: PropTypes.number.isRequired,
 };

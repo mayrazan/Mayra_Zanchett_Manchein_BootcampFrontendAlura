@@ -10,7 +10,10 @@ const CardContainer = styled.div`
   flex-direction: column;
   ${breakpointsMedia({
     md: css`
-      flex: ${({ length }) => (length > 40 ? 'auto' : '0 0 50%')};
+      max-width: 800px;
+      min-width: 800px;
+      flex: 0 0 50%;
+      width: 50%;
     `,
   })}
 `;
@@ -26,8 +29,14 @@ const CardInfo = styled.div`
   box-shadow: ${({ theme }) => theme.colors.background.boxShadow.color} 0px 15px
     30px 0px;
   min-width: 50%;
-  min-height: 150px;
-  height: 100%;
+  max-height: 275px;
+  min-height: 260px;
+  ${breakpointsMedia({
+    md: css`
+      min-height: 200px;
+      height: 100%;
+    `,
+  })}
 `;
 
 const CardLink = styled.a`
