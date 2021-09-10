@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> renderiza componente 1`] = `
+.c0 {
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 22px;
+}
+
+<span
+  class="c0"
+  color="#4e4e4e"
+>
+  Sobre Mim
+</span>
+`;
+
+exports[`<Text /> renderiza componente com props 1`] = `
+.c0 {
+  color: inherit;
+  color: #ffffff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.c0:hover,
+.c0:focus {
+  opacity: 0.5;
+}
+
+.c1 {
+  text-align: center;
+  color: #ffffff;
+}
+
+@media screen and (min-width:0px) {
+
+}
+
+@media screen and (min-width:768px) {
+  .c1 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 34px;
+  }
+}
+
+<a
+  class="c0 c1"
+  color="contrastText"
+  href="/aboutme"
+  rel="noreferrer"
+>
+  Sobre Mim
+</a>
+`;
