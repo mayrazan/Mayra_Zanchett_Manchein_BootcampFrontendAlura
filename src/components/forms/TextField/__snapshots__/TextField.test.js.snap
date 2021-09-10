@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> renderiza componente 1`] = `
+.c0 {
+  width: 100%;
+  border: 1px solid rgb(111,30,81);
+  padding: 12px 16px;
+  outline: 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px 0 rgba(111,30,81,0.05);
+}
+
+<input
+  class="c0"
+  name="nome"
+  placeholder="Nome"
+  required=""
+  value="Mayra"
+/>
+`;
