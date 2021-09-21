@@ -27,16 +27,19 @@ const socialMediaIcons = [
     id: 1,
     className: 'fa fa-twitter fa-2x icon-3d',
     link: 'https://twitter.com/mayrazan',
+    ariaLabel: 'twitter',
   },
   {
     id: 2,
     className: 'fa fa-github fa-2x icon-3d',
     link: 'https://github.com/mayrazan',
+    ariaLabel: 'github',
   },
   {
     id: 3,
     className: 'fa fa-linkedin fa-2x icon-3d',
     link: 'https://linkedin.com/in/mayra-zanchett-manchein',
+    ariaLabel: 'linkedin',
   },
 ];
 
@@ -49,7 +52,7 @@ const FooterIcon = () => (
         target="_blank"
         key={icon.id}
         rel="noreferrer"
-        aria-label="Ícone rede social"
+        aria-label={icon.ariaLabel}
       >
         <i className={icon.className} />
       </Text>
