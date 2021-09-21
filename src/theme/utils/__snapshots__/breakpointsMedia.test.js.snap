@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`breakpointsMedia() when receives a breakpoint and its an object 1`] = `
+Array [
+  Array [
+    "@media screen and (min-width:",
+    "768",
+    "px){",
+    "text-align:center;",
+    "}",
+  ],
+]
+`;
