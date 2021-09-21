@@ -1,23 +1,20 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../TestProvider/testUtils';
 import Text from '.';
-import TestProvider from '../../TestProvider';
 
 describe('<Text />', () => {
   test('renderiza componente com props', () => {
     render(
-      <TestProvider>
-        <Text
-          tag="a"
-          variant={{ md: 'menuText' }}
-          color="contrastText"
-          href="/aboutme"
-          bold
-          textAlign="center"
-        >
-          Sobre Mim
-        </Text>
-      </TestProvider>,
+      <Text
+        tag="a"
+        variant={{ md: 'menuText' }}
+        color="contrastText"
+        href="/aboutme"
+        bold
+        textAlign="center"
+      >
+        Sobre Mim
+      </Text>,
     );
     const text = screen.getByRole('link', {
       name: /sobre mim/i,
@@ -26,11 +23,7 @@ describe('<Text />', () => {
   });
 
   test('renderiza componente', () => {
-    render(
-      <TestProvider>
-        <Text>Sobre Mim</Text>
-      </TestProvider>,
-    );
+    render(<Text>Sobre Mim</Text>);
 
     const text = screen.getByText(/sobre mim/i);
     expect(text).toMatchSnapshot();

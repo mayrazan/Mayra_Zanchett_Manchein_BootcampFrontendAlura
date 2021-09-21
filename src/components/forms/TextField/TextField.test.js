@@ -1,20 +1,17 @@
 import React from 'react';
 import user from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../TestProvider/testUtils';
 import TextField from '.';
-import TestProvider from '../../TestProvider';
 
 describe('<TextField />', () => {
   test('renderiza componente', () => {
     render(
-      <TestProvider>
-        <TextField
-          placeholder="Nome"
-          value="Mayra"
-          onChange={() => {}}
-          name="nome"
-        />
-      </TestProvider>,
+      <TextField
+        placeholder="Nome"
+        value="Mayra"
+        onChange={() => {}}
+        name="nome"
+      />,
     );
     const textField = screen.getByPlaceholderText(/nome/i);
     expect(textField).toMatchSnapshot();
@@ -25,14 +22,12 @@ describe('<TextField />', () => {
       test('the value must be updated', () => {
         const onChangeMock = jest.fn();
         render(
-          <TestProvider>
-            <TextField
-              placeholder="Nome"
-              value="Mayra"
-              onChange={onChangeMock}
-              name="nome"
-            />
-          </TestProvider>,
+          <TextField
+            placeholder="Nome"
+            value="Mayra"
+            onChange={onChangeMock}
+            name="nome"
+          />,
         );
 
         const inputNome = screen.getByPlaceholderText(/nome/i);
