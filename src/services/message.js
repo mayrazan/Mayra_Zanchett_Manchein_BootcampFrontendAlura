@@ -14,7 +14,7 @@ export default function sendMessage(data) {
         return response.json();
       }
 
-      throw new Error('Não foi possível enviar sua mensgem!');
+      throw new Error('Não foi possível enviar sua mensagem!');
     })
     .then((response) => response)
     .catch((error) => error);
