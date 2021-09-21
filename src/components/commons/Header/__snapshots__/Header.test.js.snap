@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders header 1`] = `
+.c0 {
+  color: inherit;
+  color: #ffffff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.c0:hover,
+.c0:focus {
+  opacity: 0.5;
+}
+
+.c1 {
+  color: #ffffff;
+}
+
+@media screen and (min-width:0px) {
+
+}
+
+@media screen and (min-width:768px) {
+  .c1 {
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 46px;
+  }
+}
+
+@media screen and (min-width:0px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+<a
+  class="c0 c1 active"
+  color="contrastText"
+  href="/"
+  rel="noreferrer"
+>
+  &lt;Home /&gt;
+</a>
+`;
