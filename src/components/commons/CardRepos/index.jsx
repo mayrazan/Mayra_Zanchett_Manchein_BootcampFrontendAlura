@@ -7,7 +7,7 @@ import Text from '../../foundation/Text';
 import * as S from './style';
 import useWindowSize from '../../../hooks/useWindowSize';
 
-const CardRepos = ({ repos, totalRepos }) => {
+const CardRepos = ({ repos }) => {
   const [pages, setPages] = useState(1);
   const [currentRepos, setCurrentRepos] = useState(repos);
 
@@ -77,7 +77,7 @@ const CardRepos = ({ repos, totalRepos }) => {
                     textAlign="start"
                   />
                   <Text tag="span" margin="0" bold>
-                    {repo.language}
+                    {repo.language ? repo.language : ''}
                   </Text>
                 </div>
                 <Box alignSelf={{ xs: 'flex-end', md: 'center' }}>
@@ -109,7 +109,7 @@ const CardRepos = ({ repos, totalRepos }) => {
           type="button"
           onClick={onNextPage}
           // disabled={pages + currentRepos.length >= repos.length}
-          disabled={currentRepos.length * pages >= totalRepos}
+          disabled={currentRepos.length < 4}
           aria-label="Próximo"
         >
           <S.CardIcon className="fa fa-arrow-right" />
@@ -131,5 +131,4 @@ CardRepos.propTypes = {
       html_url: PropTypes.string,
     }),
   ).isRequired,
-  totalRepos: PropTypes.number.isRequired,
 };
