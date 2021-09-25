@@ -21,14 +21,14 @@ const Card = ({ projects }) => {
   return changeOrder.map((project) => (
     <CardContainer
       key={project.id}
-      onClick={() => router.push(`projects/${project.id}`)}
+      onClick={() => router.push(`projects/${project.title.toLowerCase()}`)}
     >
-      {project.isHighlight && <HighlightContainer text="Destaque" />}
-      {project.isHighlight && isDesktop ? (
+      {project.ishighlight && <HighlightContainer text="Destaque" />}
+      {project.ishighlight && isDesktop ? (
         <>
           <CardImage
-            src={isDesktop ? project.img : project.imgPhone}
-            alt={project.title}
+            src={project.image.url}
+            alt={project.image.alt}
             isDesktop
           />
           <Box
@@ -39,15 +39,12 @@ const Card = ({ projects }) => {
             padding="28px 0 0 0"
           >
             <CardTitle text={project.title} />
-            <CardText text="Projeto desenvolvido durante a imersão react da Alura, utilizando Next." />
+            <CardText text={project.description} />
           </Box>
         </>
       ) : (
         <>
-          <CardImage
-            src={isDesktop ? project.img : project.imgPhone}
-            alt={project.title}
-          />
+          <CardImage src={project.image.url} alt={project.image.alt} />
           <CardTitle text={project.title} />
         </>
       )}
@@ -60,8 +57,11 @@ export default Card;
 Card.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      img: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      image: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      }).isRequired,
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,

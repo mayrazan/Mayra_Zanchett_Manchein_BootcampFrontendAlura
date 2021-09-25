@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['source.unsplash.com'],
+    domains: ['source.unsplash.com', 'www.datocms-assets.com'],
   },
   async headers() {
     return [

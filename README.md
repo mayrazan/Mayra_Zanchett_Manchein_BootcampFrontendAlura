@@ -80,7 +80,7 @@ yarn create next-app --example with-styled-components with-styled-components-app
 - [x] Exibir o botão de enviar, apenas se os campos do formulário estiverem preenchidos.
 - [x] Os campos Seu nome, Seu email, Sua Mensagem não podem estar vazios.
 - [x] Aceitar apenas formatos válidos no campo Seu email.
-- [X] Criar o motion.div que vai ser a div feita para lidar com todas as propriedades do frame motion
+- [x] Criar o motion.div que vai ser a div feita para lidar com todas as propriedades do frame motion
 - [x] Escolher a animação que você achar mais interessante para o seu projeto.
 - [x] Criar uma função de onSubmit dentro do form.
 - [x] Fazer uma requisição POST para [esse endereço](https://contact-form-api-jamstack.herokuapp.com/message) utilizando fetch.
@@ -111,6 +111,14 @@ yarn create next-app --example with-styled-components with-styled-components-app
 - [x] Para os testes de unidades, primeiro precisamos configurar o ambiente para poder utilizar a biblioteca Jest.
 - [x] Nessa tarefa você vai precisar testar unidades do portfólio utilizando a biblioteca Jest, como por exemplo, um teste de unidade de como a função propToStyle() deveria se comportar.
 - [x] Nesse desafio você vai confirmar se o React está de fato renderizando/exibindo o componente do jeito esperado. Depois de seguir as instalações da biblioteca React Testing Library e configurar o ambiente como feito em aula, você pode testar por exemplo o componente <TextField />.
+
+**Módulo 5**
+
+- [x] Nossa função agora é cadastrar as informações dos projetos no DATOCMS, consumir e exibir esse conteúdo utilizando NextJS. Você vai cadastrar conteúdo na página de um projeto. Ela precisa de uma imagem de um projeto seu e um texto falando sobre o que é aquele projeto.
+- [x] Uma das coisas que precisamos fazer para terminar de configurar o DATOCMS é gerar um token de API, com esse token você vai conseguir solicitar o conteúdo da API DatoCMS.
+- [x] Configurar o dotenv no seu projeto.
+- [x] Instalar o graphql e o graphql request.
+- [x] Pré renderize o conteúdo, para isso pode ser construído uma função utilizando o getStaticProps.
 
 ## CI / CD
 

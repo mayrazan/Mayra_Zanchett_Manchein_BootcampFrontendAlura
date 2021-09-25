@@ -7,7 +7,7 @@ import SectionTitle from '../SectionTitle';
 import Text from '../../foundation/Text';
 import Box from '../../layout/Box';
 
-export default function ProjectCardInfo({ title, description, link }) {
+export default function ProjectCardInfo({ title, description, link, image }) {
   return (
     <Box
       display="flex"
@@ -15,15 +15,14 @@ export default function ProjectCardInfo({ title, description, link }) {
       gap="30px"
       padding={{ xs: '24px 0 0', md: '0' }}
     >
-      <SectionTitle text={title.toUpperCase()} />
+      <SectionTitle text={title} />
       <SectionWrapper flexDirection={{ xs: 'column', md: 'row' }}>
         <Image
-          src="https://source.unsplash.com/random/400x400"
-          alt="imagem do projeto"
+          src={image.url}
+          alt={image.alt}
           width={400}
           height={400}
           loading="lazy"
-          srcSet="https://source.unsplash.com/random/400x400"
         />
         <Box
           width={{ md: '50%' }}
@@ -55,4 +54,8 @@ ProjectCardInfo.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
 };
