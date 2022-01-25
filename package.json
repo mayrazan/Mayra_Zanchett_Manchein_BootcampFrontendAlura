@@ -21,7 +21,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.3",
     "eslint-plugin-jest": "^24.4.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^6.2.1",
     "graphql": "^15.8.0",
     "graphql-request": "^3.6.1",
     "jest": "^27.4.7",
